@@ -1,12 +1,17 @@
+![Northeastern University](./Northeastern%20Logo.png)
+
+
 # Final Project for EAI6080 Advanced Analytical Utilization
 #### Craig Bunce, Miguel A. Chevres, Zihao Zhang 
 #### EAI 6080 - Advanced Analytical Utilization
 #### Dr. Maria Wang
 #### Northeastern University College of Professional Studies
 
+
+
 ## Imitation Learning (Option 2)
 
-This portion of the assignment has to be the most interesting one of both, not only because of the increase 
+This portion of the assignment has to be the most complex one of both, not only because of the increase 
 in challenge in order to complete it, but the intricacies of working with several API's and frameworks at the same time
 is a challenge that not a lot of assignments entail.  For this assignment in particular we had to do 3 tasks in order to 
 complete it, each with its own complications and difficulties.  
@@ -50,6 +55,8 @@ the OpenAI paper titled ["Emergen Tool Use From Multi-Agent Autocurricula"](http
 they developed an environment for self-supervised AI agents to learn how to play Hide-And-Seek, with results that they did not even expect 
 before the training started.  These agents were capable of finding the bugs in the MuJoCo environment and breaking it in order to "seek" 
 the agent that was hiding.
+
+Once Everything was downloaded and installed; the next portion of the assignment was to run the Warmup.  Throughout this portion is when we started experimenting and learning how the MuJoCo environment works.  The main task for this problem was to run the behavioral cloning (BC) on the Hopper-v1 environment and plot the loss function for the behavior cloning objective versus the number of learning iterations (epochs).  For our assessment
 
 ![WarmUp Hopper](./Option%202/Warmup%20Hopper%20mean=737%20std=34.5.gif "Warmup Hopper Mean = 737")
 
