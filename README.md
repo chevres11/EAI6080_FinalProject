@@ -141,6 +141,17 @@ Image #7: Clone Ant with Mean = 877 and STD = 84
 
 #### Objective 2: Experiment with one hyperparameter that affects the performance of the behavioral cloning agent, such as the number of demonstrations, the number of training epochs, the variance of the expert policy, or something that you come up with yourself.  For one of the tasks used in the previous question, show a graph of how the BC agent's performance varies with the value of this hyperparameter, and state the hyperparameter and a brief rationale for why you chose it in the caption for the graph. 
 
+For this portion of the assignment we decided to change the number of training epochs as the hyperparameter manipulation.  We utilized this portion in order to 
+test our hypotheses about the ant performing better with a larger number of training epochs.  The number of epochs was changed from 300 to 1000 on both the cheetah and the ant. 
+After running the training model with 1000 epochs for the ant the difference in performance is significant, with the clone ant(Image #8) now having produced a mean score of
+2137 and a standard deviation of 1357 over 10 rollouts. As it can be seen from the image, the ant performs much more similar to the Expert ant once the number of epochs was increased, the 
+only difference is that the clone with 1000 epochs moves more upward and sideways than the expert ant.  Even if the ant had a higher mean score once the epochs were increased
+it did not help the standard deviation, increasing it significantly.  From the rendering it can be observed that the ant gets stuck early in several rollouts, affecting
+the mean score significantly. For the clone cheetah with 1000 epochs (Image #9) the results came back with a 
+mean score of 1543 and a standard deviation of 1152.  This model had a significantly worse mean score and a much higher standard deviation.  For this clone it seems that 
+we should put a stop on the loss function in the training so that it yields better results, a higher epoch number is not the answer to improving this model. 
+
+
 Image #8: Clone Ant with Mean = 2137 and STD = 1357
 
 ![Clone Ant 2](./Option%202/Clone%20Ant%20mean=2137%20std=%201357.gif "Clone Ant Mean = 2137")
@@ -153,6 +164,20 @@ Image #9: Clone Cheetah with Mean = 1543 and STD = 1152
 ![Clone Cheetah](./Option%202/Clone%20Cheetah%20mean=1543%20std=%201152.gif "Clone Cheetah Mean = 1543")
 
 
+As a final remark, we believe that adding more than 10 rollouts would help normalize the standard deviation. 
+Adding more training epochs did help to minimize the loss score for both tasks. 
+The Ant model had a better mean score with more epochs but a much higher standard deviation. From the rendering the Ant was still getting stuck early in several rollouts. This hurts the mean score significantly. For this model it would seem that more training does improve the overall score but does not address the inconsistent standard deviation. Its possible that conducting more training epochs and more rollouts could produce an overall better model.
+The Cheetah model had a much worse mean score with more epochs AND a much higher standard deviation. For this model it would seem that less training results in a better overall score. This model may require additional hyperparameter tuning for further improvement.
+Finally, here is a table with all the different values of Mean Score, Standard Deviation, and Final Loss Score obtained through the multiple runs of the model with the different clones produced and the expert ones. 
+
+Task | Mean Score | Std Deviation | # Rollouts | Final Loss Score
+-----| -----------| --------------| -----------| ----------------
+Ant Expert | 4839 | N/A| 1 | N/A - Expert
+Ant Clone (@300 Epoch) | 877 | 84 | 10 | 0.0111
+Ant Clone (@1000 Epoch) | 2137 | 1357 | 10 | 0.0063
+Cheetah Expert | 3891 | N/A | 1 | N/A - Expert
+Cheetah Clone (@300 Epoch) | 3262 | 246 | 10 | 0.0253
+Cheetah Clone (@1000 Epoch) | 1543 | 1152 | 10 | 0.0164
 
 
 If you wish to replicate this project, you would need to go to your Anaconda Powershell Prompt and create an environment.  Download this
